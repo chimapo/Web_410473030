@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <title>地圖位置</title>
+    <meta charset="utf-8">
+    <link href="css/site.css" rel="stylesheet" type="text/css">
+    <link href="css/menu.css" rel="stylesheet" type="text/css">
+    <link href="css/btn1.css" rel="stylesheet" type="text/css">
+    <link href="css/sec.css" rel="stylesheet" type="text/css">
+    <style>
+         #map {
+            height: 400px;
+            width: 100%;
+        }
+        main {
+            background-color: #f0483c;
+        }
+
+        .outside {
+            position: relative;
+            width: 400px;
+            margin: 0 auto;
+            border: 10px solid white;
+        }
+
+        .img {
+            width: 400px;
+        }
+
+        .serial {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rosybrown;
+        }
+
+        .caption {
+            width: 150px;
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            margin-left: -75px;
+            background-color: rosybrown;
+            text-align: center;
+        }
+
+        .prev {
+            cursor: pointer;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background-color: rgba(0,0,0,0.1);
+            color: pink;
+            transition: background-color 0.5s;
+        }
+
+        .next {
+            cursor: pointer;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background-color: rgba(0,0,0,0.1);
+            color: pink;
+            transition: background-color 0.5s;
+        }
+
+            .prev:hover, .next:hover {
+                background-color: rosybrown;
+            }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            margin: 0 5px;
+            border-radius: 50%;
+            border: solid black 1px;
+            display: inline-block;
+            cursor: pointer;
+            background-color: rosybrown;
+        }
+
+            .dot:hover {
+                background-color: white;
+            }
+    </style>
+    <script>
+        var pics, now = 0, num = 4;
+        window.onload = function () {
+            pics = document.getElementsByClassName("pic");
+            show(now);
+        }
+        function show(i) {
+            now = i;
+            for (var k = 0; k < pics.length; k++) {
+                pics[k].style.display = "none";
+            }
+            pics[now].style.display = "block";
+        }
+        function next() {
+            now += 1;
+            if (now > 3) now = 0;
+            show(now);
+        }
+        function prev() {
+            now -= 1;
+            if (now < 0) now = num - 1;
+            show(now);
+        }
+    </script>
+</head>
+<body>
+
+    <body background="img/apic2878.jpg">
+        <div id="all">
+            <header id="header">
+                <h1>Chimapo's artwork</h1>
+                <div style="background-color: #9370db;">官方網站</div>
+
+            </header>
+            <div id="menu-wrapper">
+                <ul class="menu">
+                    <li>
+                        <a href="1.gallery.html">作品</a>
+                        <ul>
+                            <li><a href="2.tra.html">手繪</a></li>
+                            <li><a href="3.dig.html">電繪</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="shop.html">SHOP</a>
+
+                    </li>
+                    <li>
+                        <a href="intro.html">介紹</a>
+
+                    </li>
+                    <li>
+                        <a href="contactus.html">聯絡我們</a>
+
+                    </li>
+                    <li>
+                        <a href="0.map.html">地圖位置</a>
+
+                    </li>
+                </ul>
+            </div>
+           
+            </div> 地圖<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.2990604977203!2d121.52321494985786!3d25.091735983866485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aebb2d003e41%3A0xd0c5753525c3c96f!2z5paH55Sf576O6KGT56S-!5e0!3m2!1szh-TW!2stw!4v1529916732432" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div id="map"></div>
+
+            <footer id="footer">
+                <pre>連絡電話:0912345678 
+聯絡Email: catherine11@gmail.com  </pre>
+                其他聯絡方式:
+                <a href="https://www.facebook.com/machi.chima.1">
+                    <img src="img/2000px-F_icon.svg.png" height="50px" />
+                </a>
+                <a href="https://www.instagram.com/chima.po/">
+                    <img src="img/ig-logo-300x300.jpg" height="50px" />
+                </a>
+            </footer>
+        </div>
+    </body>
+</html>
